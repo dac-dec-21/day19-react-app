@@ -9,38 +9,71 @@ export default function App() {
 }
 
 function MyComponent() {
-  // 1
-  const [message, setMessage] = useState("");
-  const [messageList, setMessageList] = useState([]);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [mobile, setMobile] = useState("");
 
-  // 3
-  const processMessage = (e) => {
-    const newMessage = e.target.value;
-    setMessage(newMessage);
+  const handleUsername = (e) => {
+    setUsername(e.target.value);
   };
 
-  // 4.
-  const addTweet = () => {
-    console.log(message);
-    const newMessageList = [message, ...messageList];
-    setMessageList(newMessageList);
-    setMessage("");
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleMobile = (e) => {
+    setMobile(e.target.value);
+  };
+
+  const registerUser = () => {
+    // alert(`${username} ${password} ${email} ${mobile}`);
+    // TODO  MAKE AJAX CALL
+    // THERE IS NO DOM
   };
 
   return (
     <div>
-      <h1>Input Operation</h1>
-      <input
-        type="text"
-        placeholder="Whats App...."
-        value={message}
-        onChange={processMessage}
-      />
-      <input type="button" value="Tweet" onClick={addTweet} />
-
-      {messageList.map((item, index) => (
-        <div key={index}> {item} </div>
-      ))}
+      <h1>Working with Registration</h1>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter username"
+          value={username}
+          onChange={handleUsername}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter Password"
+          value={password}
+          onChange={handlePassword}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter Email"
+          value={email}
+          onChange={handleEmail}
+        />
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Enter Mobile"
+          value={mobile}
+          onChange={handleMobile}
+        />
+      </div>
+      <div>
+        <input type="button" value="Register" onClick={registerUser} />
+      </div>
     </div>
   );
 }
