@@ -34,6 +34,7 @@ function MyComponent() {
     <div>
       <h1>Working with Input Element</h1>
 
+      {/** INPUT BOX */}
       <input type="text" value={message} onChange={changeMessage} />
 
       <input type="button" value="Tweet to Everyone" onClick={tweetHere} />
