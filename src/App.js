@@ -9,42 +9,36 @@ export default function App() {
 }
 
 function MyComponent() {
-  let [counter, setCounter] = useState(0);
+  let [msg, setMsg] = useState("Hellooo");
 
-  const increment = () => {
-    counter = counter + 1;
-
-    // RERENDER THE UI :: UPDATE THE INNERHTML ; innerHTML
-    setCounter(counter);
+  const changeMessage = (e) => {
+    setMsg(e.target.value);
   };
 
   return (
     <div>
       <h1>Counter Application</h1>
-      <input type="button" value="Click Me" onClick={increment} />
-      <div>
-        <h1>Like {counter}</h1>
-      </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
+      <input
+        className="w-100"
+        type="text"
+        name=""
+        id=""
+        value={msg}
+        onChange={changeMessage}
+      />
+
+      <div>{msg}</div>
+      <div>{msg}</div>
+      <div>{msg}</div>
+      <div>{msg}</div>
+      <div>{msg}</div>
+      <div>{msg}</div>
+      <div>{msg}</div>
+      <div>{msg}</div>
+      <div>{msg}</div>
+      <div>{msg}</div>
+      <div>{msg}</div>
+      <div>{msg}</div>
     </div>
   );
 }
