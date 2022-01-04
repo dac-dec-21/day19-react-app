@@ -9,20 +9,18 @@ export default function App() {
 }
 
 function MyComponent() {
-  const id = 1;
-  const msg = "Hello World, How are you?";
-  const btnMsg = "Click Me!!!";
+  let counter = 1;
 
-  const hello = () => {
-    console.log("Click me! Function Called!");
-    alert("Thank you");
+  const increment = () => {
+    counter = counter + 1;
+    console.log("Increment Callled", counter);
   };
 
   return (
     <div>
-      <div id={id}>{msg}</div>
-
-      <input type="button" value={btnMsg} onClick={hello} />
+      <h1>Counter Application</h1>
+      <div>Like {counter} </div>
+      <input type="button" value="Like Me" onClick={increment} />
     </div>
   );
 }
