@@ -9,42 +9,38 @@ export default function App() {
 }
 
 function MyComponent() {
-  const [message, setMessage] = useState("Tweet here...");
-  const [list, setList] = useState([]);
+  // 1
+  const [message, setMessage] = useState("");
+  const [messageList, setMessageList] = useState([]);
 
-  const tweetHere = () => {
-    const newList = [message, ...list];
-
-    // UI RERENDER :: innerHTML
-    setList(newList);
-    setMessage("");
-  };
-
-  const changeMessage = (e) => {
+  // 3
+  const processMessage = (e) => {
     const newMessage = e.target.value;
     setMessage(newMessage);
   };
 
-  const deleteTweet = () => {
-    list.splice(0, 1);
-    setList([...list]);
+  // 4.
+  const addTweet = () => {
+    console.log(message);
+    const newMessageList = [message, ...messageList];
+    setMessageList(newMessageList);
+    setMessage("");
   };
 
   return (
     <div>
-      <h1>Working with Input Element</h1>
+      <h1>Input Operation</h1>
+      <input
+        type="text"
+        placeholder="Whats App...."
+        value={message}
+        onChange={processMessage}
+      />
+      <input type="button" value="Tweet" onClick={addTweet} />
 
-      {/** INPUT BOX */}
-      <input type="text" value={message} onChange={changeMessage} />
-
-      <input type="button" value="Tweet to Everyone" onClick={tweetHere} />
-      <input type="button" value="Tweet to Everyone" onClick={deleteTweet} />
-
-      <div id="parent">
-        {list.map((item) => (
-          <div>{item}</div>
-        ))}
-      </div>
+      {messageList.map((item, index) => (
+        <div key={index}> {item} </div>
+      ))}
     </div>
   );
 }
