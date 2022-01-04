@@ -9,6 +9,7 @@ export default function App() {
 }
 
 function MyComponent() {
+  const [validationError, setValidationError] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -36,6 +37,10 @@ function MyComponent() {
     // alert(`${username} ${password} ${email} ${mobile}`);
     // TODO  MAKE AJAX CALL
     // THERE IS NO DOM
+    if (username == "" || password == "" || email == "" || mobile == "") {
+      setValidationError(true);
+      return;
+    }
 
     const user = {
       username: username,
@@ -45,6 +50,14 @@ function MyComponent() {
     };
     const newList = [user, ...userList];
     setUserList(newList);
+
+    // Clear in the End
+    setUsername("");
+    setPassword("");
+    setEmail("");
+    setMobile("");
+
+    setValidationError(false);
   };
 
   return (
@@ -56,6 +69,9 @@ function MyComponent() {
           placeholder="Enter username"
           value={username}
           onChange={handleUsername}
+          className={
+            username == "" && validationError ? "border border-danger" : ""
+          }
         />
       </div>
       <div>
@@ -64,6 +80,9 @@ function MyComponent() {
           placeholder="Enter Password"
           value={password}
           onChange={handlePassword}
+          className={
+            password == "" && validationError ? "border border-danger" : ""
+          }
         />
       </div>
       <div>
@@ -72,6 +91,9 @@ function MyComponent() {
           placeholder="Enter Email"
           value={email}
           onChange={handleEmail}
+          className={
+            email == "" && validationError ? "border border-danger" : ""
+          }
         />
       </div>
       <div>
@@ -80,6 +102,9 @@ function MyComponent() {
           placeholder="Enter Mobile"
           value={mobile}
           onChange={handleMobile}
+          className={
+            mobile == "" && validationError ? "border border-danger" : ""
+          }
         />
       </div>
       <div>
