@@ -9,7 +9,6 @@ export default function App() {
 }
 
 function MyComponent() {
-  let [btnValue] = useState("Like Meee");
   let [counter, setCounter] = useState(0);
 
   const increment = () => {
@@ -22,7 +21,7 @@ function MyComponent() {
   return (
     <div>
       <h1>Counter Application</h1>
-      <input type="button" value={btnValue} onClick={increment} />
+      <input type="button" value="Click Me" onClick={increment} />
       <div>
         <h1>Like {counter}</h1>
       </div>
