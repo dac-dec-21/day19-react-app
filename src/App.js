@@ -9,42 +9,19 @@ export default function App() {
 }
 
 function MyComponent() {
-  let [counter, setCounter] = useState(0);
-
-  const increment = () => {
-    counter = counter + 1;
-
-    // RERENDER THE UI :: UPDATE THE INNERHTML ; innerHTML
-    setCounter(counter);
-  };
+  const [list] = useState(["Hello Worldddd"]);
 
   return (
     <div>
-      <h1>Counter Application</h1>
-      <input type="button" value="Click Me" onClick={increment} />
-      <div>
-        <h1>Like {counter}</h1>
+      <h1>Working with Input Element</h1>
+
+      <input type="button" value="Tweet to Everyone" />
+
+      <div id="parent">
+        {list.map((item) => (
+          <div>{item}</div>
+        ))}
       </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
-      <div>Like {counter} </div>
     </div>
   );
 }
