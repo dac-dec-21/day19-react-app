@@ -14,6 +14,8 @@ function MyComponent() {
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
 
+  const [userList, setUserList] = useState([]);
+
   const handleUsername = (e) => {
     setUsername(e.target.value);
   };
@@ -34,6 +36,15 @@ function MyComponent() {
     // alert(`${username} ${password} ${email} ${mobile}`);
     // TODO  MAKE AJAX CALL
     // THERE IS NO DOM
+
+    const user = {
+      username: username,
+      password: password,
+      email: email,
+      mobile: mobile,
+    };
+    const newList = [user, ...userList];
+    setUserList(newList);
   };
 
   return (
@@ -74,6 +85,13 @@ function MyComponent() {
       <div>
         <input type="button" value="Register" onClick={registerUser} />
       </div>
+
+      <hr />
+      {userList.map((item, index) => (
+        <div key={index}>
+          {item.username}, {item.password}, {item.email}, {item.mobile}
+        </div>
+      ))}
     </div>
   );
 }
