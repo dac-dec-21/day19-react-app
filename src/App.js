@@ -22,7 +22,7 @@ function MyComponent() {
   };
 
   const addUser = async () => {
-    if (username == "" || password == "") {
+    if (username == "") {
       alert("Vlidation fails");
       return;
     }
@@ -66,7 +66,7 @@ function MyComponent() {
 
   return (
     <div>
-      <h2 className="bg-dark text-light p-3">User Registration</h2>
+      <h2 className="bg-danger text-light p-3">Instagram</h2>
       <div>
         <input
           className="form-control form-control-lg mb-1"
@@ -75,34 +75,24 @@ function MyComponent() {
           id=""
           value={username}
           onChange={handleUsernameChange}
-          placeholder="Enter Username"
+          placeholder="Whats App...."
         />
       </div>
+
       <div>
         <input
-          className="form-control form-control-lg mb-1"
-          type="text"
-          name=""
-          id=""
-          value={password}
-          onChange={handlePasswordChange}
-          placeholder="Enter Password"
-        />
-      </div>
-      <div>
-        <input
-          className="btn btn-secondary w-100"
+          className="btn btn-danger w-100"
           type="button"
           name=""
-          value="Register"
+          value="Send"
           onClick={addUser}
         />
       </div>
 
-      <h3 className="bg-dark text-light mt-1 p-3">User List</h3>
+      <h3 className="bg-danger text-light mt-1 p-3">Messages</h3>
 
       {list.map((item, index) => (
-        <div key={index} className="alert alert-secondary fs-4">
+        <div key={index} className="alert border border-secondary fs-4">
           {item.username} {item.password}
         </div>
       ))}
