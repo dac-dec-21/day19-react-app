@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function App() {
   return (
@@ -55,6 +55,9 @@ function MyComponent() {
     const newList = [...list];
     setList(newList);
   };
+
+  // LIke Constructor
+  useEffect(() => getUser(), []);
 
   return (
     <div>
