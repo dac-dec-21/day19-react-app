@@ -22,6 +22,11 @@ function MyComponent() {
   };
 
   const addUser = async () => {
+    if (username == "" || password == "") {
+      alert("Vlidation fails");
+      return;
+    }
+
     const url = "http://localhost:4000/add-user";
     const data = {
       username: username,
@@ -61,9 +66,10 @@ function MyComponent() {
 
   return (
     <div>
-      <h1>User Registration</h1>
+      <h2 className="bg-dark text-light p-3">User Registration</h2>
       <div>
         <input
+          className="form-control form-control-lg mb-1"
           type="text"
           name=""
           id=""
@@ -74,6 +80,7 @@ function MyComponent() {
       </div>
       <div>
         <input
+          className="form-control form-control-lg mb-1"
           type="text"
           name=""
           id=""
@@ -83,14 +90,19 @@ function MyComponent() {
         />
       </div>
       <div>
-        <input type="button" name="" value="Register" onClick={addUser} />
-        <input type="button" name="" value="Get User" onClick={getUser} />
+        <input
+          className="btn btn-secondary w-100"
+          type="button"
+          name=""
+          value="Register"
+          onClick={addUser}
+        />
       </div>
 
-      <h1>User List</h1>
+      <h3 className="bg-dark text-light mt-1 p-3">User List</h3>
 
       {list.map((item, index) => (
-        <div key={index}>
+        <div key={index} className="alert alert-secondary fs-4">
           {item.username} {item.password}
         </div>
       ))}
