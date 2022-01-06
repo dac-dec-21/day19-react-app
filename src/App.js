@@ -56,7 +56,7 @@ function MyComponent() {
     setList(newList);
   };
 
-  // LIke Constructor
+  // Spe Function::  Like Constructor :: React Hooks
   useEffect(() => getUser(), []);
 
   return (
